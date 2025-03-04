@@ -49,25 +49,9 @@ Check the list of connections for both Alice and Faber by executing /connections
 
 
 ### Preparing a credential
-The ./run_demo faber" (and "./run_demo alice") scripts to start up our agents created the following:
-
-- registered a public DID and stored it on the ledger;
-- created a schema and registered it on the ledger;
-- created a credential definition and registered it on the ledge
-
-To find the wallet DID of an agent, find the ```/wallet/did/public``` endpoint and execute it.  Copy the DID in your clipboard.
-
-Go to the online test ledger http://test.bcovrin.vonx.io/
-Select the Indy Scan link at the bottom of the page which takes you to http://test.bcovrin.vonx.io:3707/home/BCOVRIN_TEST
-
-Select the domain tab and enter the DID in the search bar.  You should see something similiar to the following:
-
-![image](https://github.com/user-attachments/assets/082fa2f3-6ad8-476f-9cad-698c9a251dae)
-
-Next, find the corresponding schema using the Faber API ```/schemas/created``` endpoint. Copy this value into a text editor for later use.
+Find the corresponding schema using the Faber API ```/schemas/created``` endpoint. Copy this value into a text editor for later use.
 
 Next, find the credential definition using the Faber API ```/credential-definitions/created``` endpoint. Copy this value into a text editor for later use.
-
 
 ### Issuing a credential
 Now we are ready to issue a credential. 
