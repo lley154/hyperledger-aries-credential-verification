@@ -65,7 +65,7 @@ Relace the following values for the curl command below and execute it in a new t
 - ```cred_def_id``` the Id of the credential definition Faber created (use ```GET /credential-definitions/created```)
 - ```issuer_did``` the Faber public DID (use ```GET /wallet/DID/public```),
 
-Use the Faber API (http://localhost:8021/api/doc#/issue-credential%20v2.0/post_issue_credential_2_0_send-offer) using this example as a template:
+Submit the Faber API ```POST /issue-credential-v2.0/send-offer``` using this example as a template:
 ```
 {
   "connection_id": "30385f20-30f9-4949-ab94-e1ef2b09740f",
