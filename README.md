@@ -54,6 +54,7 @@ Find the corresponding schema using the Faber API ```/schemas/created``` endpoin
 Next, find the credential definition using the Faber API ```/credential-definitions/created``` endpoint. Copy this value into a text editor for later use.
 
 ### Issuing a credential
+#### Send credential offer
 Now we are ready to issue a credential. 
 
 Relace the following values for the curl command below and execute it in a new terminal window. 
@@ -111,6 +112,11 @@ curl -X POST 'http://localhost:8021/issue-credential-2.0/send-offer' \
   "trace": true
 }'
 ```
+
+#### Send credential request
+Using Alice's API, execute the ```POST /issue-credential-2.0/records/{cred_ex_id}/send-request``` endpoint using the cred_ex_id found in Alice's log output.  Update the payload with the correct Alice DID by using the GET ```/wallet/DID/public``` endpoint. 
+
+
 
 Look at the log outpus for both Faber and Alice and you will notice a number of communication exchanges to accept the credential.
 
