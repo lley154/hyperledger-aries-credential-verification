@@ -67,7 +67,9 @@ Relace the following values for the curl command below and execute it in a new t
 
 Submit the Faber API ```POST /issue-credential-v2.0/send-offer``` using this example as a template:
 ```
-{
+curl -X POST 'http://localhost:8021/issue-credential-2.0/send' \
+-H 'Content-Type: application/json' \
+-d '{
   "connection_id": "30385f20-30f9-4949-ab94-e1ef2b09740f",
   "filter": {
     "indy": {
@@ -107,7 +109,7 @@ Submit the Faber API ```POST /issue-credential-v2.0/send-offer``` using this exa
   },
   "auto_remove": true,
   "trace": true
-}
+}'
 ```
 
 Look at the log outpus for both Faber and Alice and you will notice a number of communication exchanges to accept the credential.
