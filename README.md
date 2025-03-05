@@ -54,7 +54,6 @@ Find the corresponding schema using the Faber API ```/schemas/created``` endpoin
 Next, find the credential definition using the Faber API ```/credential-definitions/created``` endpoint. Copy this value into a text editor for later use.
 
 ### Issuing a credential
-#### Send credential offer
 Now we are ready to issue a credential. 
 
 Relace the following values for the curl command below and execute it in a new terminal window. 
@@ -66,7 +65,7 @@ Relace the following values for the curl command below and execute it in a new t
 - ```cred_def_id``` the Id of the credential definition Faber created (use ```GET /credential-definitions/created```)
 - ```issuer_did``` the Faber public DID (use ```GET /wallet/DID/public```),
 
-Submit the Faber API ```POST /issue-credential-v2.0/send-offer``` using this example as a template:
+Submit the Faber API ```POST /issue-credential-v2.0/send``` using this example as a template:
 ```
 curl -X POST 'http://localhost:8021/issue-credential-2.0/send-offer' \
 -H 'Content-Type: application/json' \
@@ -113,12 +112,20 @@ curl -X POST 'http://localhost:8021/issue-credential-2.0/send-offer' \
 }'
 ```
 
-#### Send credential request
-Using Alice's API, execute the ```POST /issue-credential-2.0/records/{cred_ex_id}/send-request``` endpoint using the cred_ex_id found in Alice's log output.  Update the payload with the correct Alice DID by using the GET ```/wallet/DID/public``` endpoint. 
-
-
-
-Look at the log outpus for both Faber and Alice and you will notice a number of communication exchanges to accept the credential.
-
 To save the credential in Alice's wallet, copy the ```cred_ex_id``` from Alice's credential log output and then using Alice's API, execute the ```/issue-credential-2.0/records/{cred_ex_id}/store``` endpoint with the ```cred_ex_id```.  Ignore the payload field for now.
+
+### Verifying a credential
+
+#### Send Proof Request
+Faber -> ```POST /present-proof-2.0/send-request```
+Alice -> ```Receive Proof Request``` (callback/webhook)
+Alice -> ```Find Credentials```
+Alice -> ```Send Proof```
+Faber -> ```Receive Proof``` (callback/webhook)
+Faber -> ```Validate Proof```
+
+
+
+
+
 
