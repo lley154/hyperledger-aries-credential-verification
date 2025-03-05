@@ -49,11 +49,11 @@ Check the list of connections for both Alice and Faber by executing /connections
 
 
 ### Preparing a credential
-Find the corresponding schema using the Faber API ```/schemas/created``` endpoint. Copy this value into a text editor for later use.
+- Find the DID for Faber using Faber API ```/wallet/DID/public``` endpoint
+- Find the corresponding schema using the Faber API ```/schemas/created``` endpoint. Copy this value into a text editor for later use.
+- Find the credential definition using the Faber API ```/credential-definitions/created``` endpoint. Copy this value into a text editor for later use.
 
-Next, find the credential definition using the Faber API ```/credential-definitions/created``` endpoint. Copy this value into a text editor for later use.
-
-### Issuing a credential
+### Issuing a credential (Faber -> Alice)
 Now we are ready to issue a credential. 
 
 Relace the following values for the curl command below and execute it in a new terminal window. 
