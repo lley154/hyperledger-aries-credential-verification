@@ -71,15 +71,15 @@ Submit the Faber API ```POST /issue-credential-v2.0/send``` using this example a
 curl -X POST 'http://localhost:8021/issue-credential-2.0/send' \
 -H 'Content-Type: application/json' \
 -d '{
-  "connection_id": "30385f20-30f9-4949-ab94-e1ef2b09740f",
+  "connection_id": "571078f5-ff5b-4da2-a7f4-5801caa3a2f9",
   "filter": {
     "indy": {
-      "schema_id": "BdH67XxU3cGJAtnkf6pZpS:2:degree schema:76.46.99",
-      "schema_issuer_did": "BdH67XxU3cGJAtnkf6pZpS",
+      "schema_id": "J5DXo9o7oaKh3Ymo4n86k7:2:degree schema:32.94.77",
+      "schema_issuer_did": "J5DXo9o7oaKh3Ymo4n86k7",
       "schema_name": "degree schema",
-      "schema_version": "76.46.99",
-      "cred_def_id": "BdH67XxU3cGJAtnkf6pZpS:3:CL:2706685:faber.agent.degree_schema",
-      "issuer_did": "BdH67XxU3cGJAtnkf6pZpS"
+      "schema_version": "32.94.77",
+      "cred_def_id": "J5DXo9o7oaKh3Ymo4n86k7:3:CL:2710521:faber.agent.degree_schema",
+      "issuer_did": "J5DXo9o7oaKh3Ymo4n86k7"
     }
   },
   "comment": "Issuing degree credential",
