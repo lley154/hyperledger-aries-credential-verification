@@ -119,12 +119,71 @@ To save the credential in Alice's wallet, copy the ```cred_ex_id``` from Alice's
 Using Alice's API, find and execute the ```/credentials``` endpoint to see the credential saved in Alice's wallet.
 
 ### Verifying a credential
-- Faber -> Send Proof Request ```POST /present-proof-2.0/send-request```
-- Alice -> Receive Proof Request (callback/webhook)
-- Alice -> Find Credentials ```GET /present-proof-2.0/records/{pres_ex_id}/credentials```
-- Alice -> Send Proof ```POST /present-proof-2.0/records/{pres_ex_id}/send-presentation```
-- Faber -> Receive Proof (callback/webhook)
-- Faber -> Validate Proof ```POST /present-proof-2.0/records/{pres_ex_id}/verify-presentation```
+#### Send proof request (Faber -> Alice)
+Update ```connection_id``` and ```cred_def_id``` with the values obtained above using the Faber API. Replace the payload for the ```POST /present-proof-2.0/send-request``` endpoint using the Faber API with the json object below. 
+
+```
+{
+  "comment": "This is a comment about the reason for the proof",
+  "connection_id": "e469e0f3-2b4d-4b12-9ac7-293f23e8a816",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Education",
+      "version": "1.0",
+      "requested_attributes": {
+        "0_name_uuid": {
+          "name": "name",
+          "restrictions": [
+            {
+              "cred_def_id": "SsX9siFWXJyCAmXnHY514N:3:CL:8:faber.agent.degree_schema"
+            }
+          ]
+        },
+        "0_date_uuid": {
+          "name": "date",
+          "restrictions": [
+            {
+              "cred_def_id": "SsX9siFWXJyCAmXnHY514N:3:CL:8:faber.agent.degree_schema"
+            }
+          ]
+        },
+        "0_degree_uuid": {
+          "name": "degree",
+          "restrictions": [
+            {
+              "cred_def_id": "SsX9siFWXJyCAmXnHY514N:3:CL:8:faber.agent.degree_schema"
+            }
+          ]
+        },
+        "0_self_attested_thing_uuid": {
+          "name": "self_attested_thing"
+        }
+      },
+      "requested_predicates": {
+        "0_age_GE_uuid": {
+          "name": "birthdate_dateint",
+          "p_type": "<=",
+          "p_value": 20030101,
+          "restrictions": [
+            {
+              "cred_def_id": "SsX9siFWXJyCAmXnHY514N:3:CL:8:faber.agent.degree_schema"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+In Alice's log outout there will be a callback/webhook for a receive proof request.
+
+#### Find credential and send back proof (Alice -> Faber)
+The ACA-Py instance automatically selects a matching credential and responds back with a Proof.
+
+#### Verify the proof (Faber)
+Using Faber's API ```GET /present-proof-2.0/records/{pres_ex_id}``` endpoint, locate the ```pres_ex_id``` in Faber's log output and execute the endpoint.  That should return a result showing the state as done and verified as true. Proof positive!
+
+
 
   
 
