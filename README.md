@@ -116,7 +116,7 @@ curl -X POST 'http://localhost:8021/issue-credential-2.0/send' \
 To save the credential in Alice's wallet, copy the ```cred_ex_id``` from Alice's credential log output and then using Alice's API, execute the ```/issue-credential-2.0/records/{cred_ex_id}/store``` endpoint with the ```cred_ex_id```.  Ignore the payload field for now.
 
 ### Listing the credential
-Using Alice's API, find and execute the /credentials endpoint to see the credential saved in Alice's wallet.
+Using Alice's API, find and execute the ```/credentials``` endpoint to see the credential saved in Alice's wallet.
 
 ### Verifying a credential
 - Faber -> Send Proof Request ```POST /present-proof-2.0/send-request```
