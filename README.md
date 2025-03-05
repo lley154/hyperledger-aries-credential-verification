@@ -117,12 +117,12 @@ To save the credential in Alice's wallet, copy the ```cred_ex_id``` from Alice's
 ### Verifying a credential
 
 #### Send Proof Request
-Faber -> ```POST /present-proof-2.0/send-request```
-Alice -> ```Receive Proof Request``` (callback/webhook)
-Alice -> ```Find Credentials```
-Alice -> ```Send Proof```
-Faber -> ```Receive Proof``` (callback/webhook)
-Faber -> ```Validate Proof```
+- Faber -> ```POST /present-proof-2.0/send-request```
+- Alice -> ```Receive Proof Request``` (callback/webhook)
+- Alice -> ```Find Credentials```
+- Alice -> ```Send Proof```
+- Faber -> ```Receive Proof``` (callback/webhook)
+- Faber -> ```Validate Proof```
 
 
 
