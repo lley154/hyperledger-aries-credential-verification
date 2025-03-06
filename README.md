@@ -123,9 +123,11 @@ Using Alice's API, find and execute the ```/credentials``` endpoint to see the c
 Update ```connection_id``` and ```cred_def_id``` with the values obtained above using the Faber API. Replace the payload for the ```POST /present-proof-2.0/send-request``` endpoint using the Faber API with the json object below. 
 
 ```
-{
+curl -X POST 'http://localhost:8021/present-proof-2.0/send-request' \
+-H 'Content-Type: application/json' \
+-d '{
   "comment": "This is a comment about the reason for the proof",
-  "connection_id": "e469e0f3-2b4d-4b12-9ac7-293f23e8a816",
+  "connection_id": "7d72a40e-711a-46f1-9c0f-527585b2cbfc",
   "presentation_request": {
     "indy": {
       "name": "Proof of Education",
@@ -135,7 +137,7 @@ Update ```connection_id``` and ```cred_def_id``` with the values obtained above 
           "name": "name",
           "restrictions": [
             {
-              "cred_def_id": "SsX9siFWXJyCAmXnHY514N:3:CL:8:faber.agent.degree_schema"
+              "cred_def_id": "DCaTBJbFSYjuPhccFbo2Vi:3:CL:2711704:faber.agent.degree_schema"
             }
           ]
         },
@@ -143,7 +145,7 @@ Update ```connection_id``` and ```cred_def_id``` with the values obtained above 
           "name": "date",
           "restrictions": [
             {
-              "cred_def_id": "SsX9siFWXJyCAmXnHY514N:3:CL:8:faber.agent.degree_schema"
+              "cred_def_id": "DCaTBJbFSYjuPhccFbo2Vi:3:CL:2711704:faber.agent.degree_schema"
             }
           ]
         },
@@ -151,7 +153,7 @@ Update ```connection_id``` and ```cred_def_id``` with the values obtained above 
           "name": "degree",
           "restrictions": [
             {
-              "cred_def_id": "SsX9siFWXJyCAmXnHY514N:3:CL:8:faber.agent.degree_schema"
+              "cred_def_id": "DCaTBJbFSYjuPhccFbo2Vi:3:CL:2711704:faber.agent.degree_schema"
             }
           ]
         },
@@ -166,14 +168,14 @@ Update ```connection_id``` and ```cred_def_id``` with the values obtained above 
           "p_value": 20030101,
           "restrictions": [
             {
-              "cred_def_id": "SsX9siFWXJyCAmXnHY514N:3:CL:8:faber.agent.degree_schema"
+              "cred_def_id": "DCaTBJbFSYjuPhccFbo2Vi:3:CL:2711704:faber.agent.degree_schema"
             }
           ]
         }
       }
     }
   }
-}
+}'
 ```
 In Alice's log outout there will be a callback/webhook for a receive proof request.
 
