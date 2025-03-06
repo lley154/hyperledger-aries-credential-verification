@@ -185,7 +185,7 @@ The ACA-Py instance automatically selects a matching credential and responds bac
 #### Verify the proof (Faber)
 Using Faber's API ```GET /present-proof-2.0/records/{pres_ex_id}``` endpoint, locate the ```pres_ex_id``` in Faber's log output and execute the endpoint.  
 
-You should see verified as true at the end of Faber's log output. Proof positive!
+You should see ```verified``` set to true at the end of Faber's log output. Proof positive!
 ```
     "verified": "true",
     "verified_msgs": [
