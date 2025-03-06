@@ -183,7 +183,18 @@ In Alice's log outout there will be a callback/webhook for a receive proof reque
 The ACA-Py instance automatically selects a matching credential and responds back with a Proof.
 
 #### Verify the proof (Faber)
-Using Faber's API ```GET /present-proof-2.0/records/{pres_ex_id}``` endpoint, locate the ```pres_ex_id``` in Faber's log output and execute the endpoint.  That should return a result showing the state as done and verified as true. Proof positive!
+Using Faber's API ```GET /present-proof-2.0/records/{pres_ex_id}``` endpoint, locate the ```pres_ex_id``` in Faber's log output and execute the endpoint.  
+
+You should see verified as true at the end of Faber's log output. Proof positive!
+```
+    "verified": "true",
+    "verified_msgs": [
+        "UNRVL_ATTR::0_name_uuid",
+        "RMV_GLB_NRI"
+    ],
+    "auto_present": false,
+    "auto_remove": false
+```
 
 
 
